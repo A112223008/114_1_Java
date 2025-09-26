@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 // Account 類別：代表銀行帳戶
 public class Account {
     // 帳號，識別每個帳戶
@@ -40,13 +42,24 @@ public class Account {
      * 設定帳戶餘額
      * @param balance 新餘額
      * @throws IllegalArgumentException 餘額必須為正數
+     * 若金額不合法，允許輸入三次，三次錯誤才丟出例外
      */
     public void setBalance(double balance) {
-        if(balance >= 0){
-            this.balance = balance;
-        }else{
-            throw new IllegalArgumentException("餘額必須為正數");
+        Scanner scanner = new Scanner(System.in);
+        int attempts = 0;
+        while (attempts < 3) {
+            if (balance >= 0) {
+                this.balance = balance;
+                return;
+            } else {
+                attempts++;
+                if (attempts < 3) {
+                    System.out.print("餘額必須為正數，請重新輸入：");
+                    balance = scanner.nextDouble();
+                }
+            }
         }
+        throw new IllegalArgumentException("餘額必須為正數");
     }
 
     /**
@@ -61,28 +74,48 @@ public class Account {
      * 存款方法，將指定金額存入帳號
      * @param amount 存款金額，必須大於 0
      * @throws IllegalArgumentException 存款必須為正數
+     * 若金額不合法，允許輸入三次，三次錯誤才丟出例外
      */
     public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount; // 增加餘額
-        } else {
-            // 若金額不合法則丟出例外
-            throw new IllegalArgumentException("存款必須為正數");
+        Scanner scanner = new Scanner(System.in);
+        int attempts = 0;
+        while (attempts < 3) {
+            if (amount > 0) {
+                balance += amount;
+                return;
+            } else {
+                attempts++;
+                if (attempts < 3) {
+                    System.out.print("存款必須為正數，請重新輸入：");
+                    amount = scanner.nextDouble();
+                }
+            }
         }
+        throw new IllegalArgumentException("存款必須為正數");
     }
 
     /**
      * 提款方法，將指定金額自帳號扣除
      * @param amount 提款金額，必須大於 0 且小於等於餘額
      * @throws IllegalArgumentException 提款金額不合法
+     * 若金額不合法，允許輸入三次，三次錯誤才丟出例外
      */
     public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount; // 減少餘額
-        } else {
-            // 若金額不合法則丟出例外
-            throw new IllegalArgumentException("提款金額不合法");
+        Scanner scanner = new Scanner(System.in);
+        int attempts = 0;
+        while (attempts < 3) {
+            if (amount > 0 && amount <= balance) {
+                balance -= amount;
+                return;
+            } else {
+                attempts++;
+                if (attempts < 3) {
+                    System.out.print("提款金額不合法，請重新輸入：");
+                    amount = scanner.nextDouble();
+                }
+            }
         }
+        throw new IllegalArgumentException("提款金額不合法");
     }
 
 }
