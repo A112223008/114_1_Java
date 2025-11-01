@@ -19,10 +19,10 @@ public class Account {
      * @param accountNumber 帳戶號碼
      * @param initialBalance 初始餘額
      */
-    public Account(String accountNumber, String ownerName, String ownewID, double initialBalance) {
+    public Account(String accountNumber, String ownerName, String ownerID, double initialBalance) {
         LocalDateTime now = LocalDateTime.now();// 取得目前日期與時間
         this.setAccountNumber(accountNumber);
-        this.owner = new Person(ownerName,ownewID);
+        this.owner = new Person(ownerName,ownerID);
         try {
             this.setBalance(initialBalance);
         } catch (IllegalArgumentException e) {
