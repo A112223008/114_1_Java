@@ -33,8 +33,10 @@ public class AccountTest {
                     System.out.print("輸入持有人名稱: ");
                     String ownerName = scanner.nextLine();
                     System.out.print("輸入初始餘額: ");
+                    String ownerID = scanner.nextLine();
+                    System.out.print("輸入初始餘額: ");
                     double initialBalance = scanner.nextDouble();
-                    Account newAccount = new Account(accNum, ownerName, initialBalance);
+                    Account newAccount = new Account(accNum, ownerName,ownerID,initialBalance);
                     addCustomer(customers, newAccount);
                     break;
                 case 2:
@@ -82,7 +84,7 @@ public class AccountTest {
         for (int i = 0; i < customers.size(); i++) {
             if (customers.get(i).getAccountNumber().equals(accountNumber)) {
                 Account removedAccount = customers.remove(i);
-                System.out.println("刪除客戶成功: " + removedAccount.getAccountNumber() + " (" + removedAccount.getOwnerName() + ")");
+                System.out.println("刪除客戶成功: " + removedAccount.getAccountNumber() + " (" + removedAccount.getOwner() + ")");
                 return;
             }
         }

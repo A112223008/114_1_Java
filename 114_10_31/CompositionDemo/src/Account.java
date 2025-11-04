@@ -120,6 +120,6 @@ public class Account {
 
     public String toString() {
         return String.format("帳戶號碼: %s, 持有人: %s, 餘額: %.2f, 開戶日期: %s, 開戶時間: %s",
-                accountNumber, ownerName, balance, openDate.toString(), openTime.toString());
+                accountNumber, owner, balance, openDate.toString(), openTime.toString());
     }
 }
