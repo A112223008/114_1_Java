@@ -9,6 +9,7 @@ public class RPG {
         Magician magician_dark = new Magician("黑暗法師", 80, 20, 5);
 
 
+
         // 戰鬥模擬
         System.out.println("戰鬥開始！");
         swordsMan_light.attack(swordsMan_dark);
