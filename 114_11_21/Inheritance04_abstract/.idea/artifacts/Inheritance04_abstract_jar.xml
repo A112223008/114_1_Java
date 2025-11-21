@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Inheritance04_abstract:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Inheritance04_abstract_jar</output-path>
+    <root id="archive" name="Inheritance04_abstract.jar">
+      <element id="module-output" name="Inheritance04_abstract" />
+    </root>
+  </artifact>
+</component>
